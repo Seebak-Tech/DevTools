@@ -1,0 +1,39 @@
+    #crear imagen zsh
+docker build -t zsh:5.8 .
+docker tag zsh:5.8 zsh:latest
+docker run -it --rm --name zsh zsh:latest /bin/zsh
+
+    #crear imagen tmux
+docker build -t tmux:3.1 .
+docker tag tmux:3.1 tmux:latest
+docker run -it --rm --name tmux tmux:latest /bin/zsh
+
+    #crear imagen pyenv
+docker build -t pyenv:1.2.22 .
+docker tag pyenv:1.2.22 pyenv:latest
+docker run -it --rm --name pyenv pyenv:latest /bin/zsh
+
+    #crear imagen poetry
+docker build -t poetry:1.1.4 .
+docker tag poetry:1.1.4 poetry:latest
+docker build -t poetry:1.1.4 . --build-arg PYTHON_VERSION=3.9.2 
+docker run -it --rm --name poetry poetry:latest /bin/zsh
+
+    #crear imagen nvim
+docker build -t nvim:0.5.0 .
+docker tag nvim:0.5.0 nvim:latest
+docker run -it --rm --name nvim nvim:latest /bin/zsh
+
+    #crear imagen python_IDE
+docker build -t pytools:latest .
+docker run -it --rm --name pytools -p 22:22 pytools:latest
+docker run -itd --name pytools -v /home/oracle/Documentos/AWS/workspace:/workspace -p 22:22 -p 8888:8888 pytools:latest /bin/zsh 
+ssh -Y admin@localhost -p 22 
+ssh -Y admin@localhost -p 22 tmux a
+ssh -Y admin@localhost -p 22 -t tmux a -t default
+
+jupyter lab --ip 0.0.0.0 --no-browser --allow-root
+ssh -Y admin@localhost -p 22 -t tmux new -s prueba 
+
+docker-compose -f pytools_compose.yaml down
+docker-compose -f pytools_compose.yaml up -d
