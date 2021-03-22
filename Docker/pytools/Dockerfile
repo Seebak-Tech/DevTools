@@ -17,7 +17,7 @@ ENV HOME=/home/admin \
     PYENV_ROOT=$HOME/.pyenv \
     PATH=$HOME/.local/bin:/home/admin/.pyenv/shims:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/admin/.pyenv/bin:$PYENV_ROOT/plugins/pyenv-virtualenv/shims:$HOME/.pyenv/shims:$HOME/bin \
     PYTHON3_HOST_PROG=/home/admin/.pyenv/versions/neovim3/bin/python \
-    PYTHON_HOST_PROG=/home/admin/.pyenv/versions/neovim2/bin/python
+    PYTHON_HOST_PROG=/home/admin/.pyenv/versions/neovim2/bin/python 
 
 ARG PYTHON2_VERSION=2.7.18
 

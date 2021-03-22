@@ -23,6 +23,9 @@ RUN apt-get update \
     fonts-powerline \
     zsh \
     zsh-syntax-highlighting \
+    iputils-ping \
+    x11-apps \
+    net-tools \
     && apt-get clean all \
     && rm -rf /var/lib/apt/lists/* 
   

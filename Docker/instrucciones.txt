@@ -13,27 +13,34 @@ docker build -t pyenv:1.2.22 .
 docker tag pyenv:1.2.22 pyenv:latest
 docker run -it --rm --name pyenv pyenv:latest /bin/zsh
 
-    #crear imagen poetry
-docker build -t poetry:1.1.4 .
-docker tag poetry:1.1.4 poetry:latest
-docker build -t poetry:1.1.4 . --build-arg PYTHON_VERSION=3.9.2 
-docker run -it --rm --name poetry poetry:latest /bin/zsh
-
     #crear imagen nvim
 docker build -t nvim:0.5.0 .
 docker tag nvim:0.5.0 nvim:latest
+docker build -t nvim:0.5.0 . --build-arg PYTHON_VERSION=3.9.2 
 docker run -it --rm --name nvim nvim:latest /bin/zsh
 
     #crear imagen python_IDE
 docker build -t pytools:latest .
-docker run -it --rm --name pytools -p 22:22 pytools:latest
-docker run -itd --name pytools -v /home/oracle/Documentos/AWS/workspace:/workspace -p 22:22 -p 8888:8888 pytools:latest /bin/zsh 
-ssh -Y admin@localhost -p 22 
-ssh -Y admin@localhost -p 22 tmux a
-ssh -Y admin@localhost -p 22 -t tmux a -t default
 
-jupyter lab --ip 0.0.0.0 --no-browser --allow-root
+    #SSH
+ssh -Y admin@localhost -p 22 -t tmux a -t default
 ssh -Y admin@localhost -p 22 -t tmux new -s prueba 
 
+    #Jupyter 
+jupyter lab --ip 0.0.0.0 --no-browser --allow-root
+
+    #DISPLAY
+docker run -itd -e DISPLAY=${DOCKER_HOST}:0 -v /tmp/.X11-unix:/tmp/.X11-unix --name pytools -p 22:22 -p 8888:8888 pytools:latest /bin/zsh
+docker run -itd -e DISPLAY=${DOCKER_HOST}:0 -v /tmp/.X11-unix:/tmp/.X11-unix -v /home/oracle/Documentos/AWS/deep_learning:/workspace --name pytools -p 22:22 -p 8888:8888 pytools:latest /bin/zsh
+docker exec -it prueba /bin/zsh 
+
+    #Nombre imagen docker hub
+seebaktec/pytools:latest
+
+    #Docker-compose 
 docker-compose -f pytools_compose.yaml down
 docker-compose -f pytools_compose.yaml up -d
+
+    #Borrar llaves SSH
+ssh-keygen -f "/home/oracle/.ssh/known_hosts" -R "localhost"\n
+
