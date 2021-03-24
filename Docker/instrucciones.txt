@@ -34,6 +34,10 @@ docker run -itd -e DISPLAY=${DOCKER_HOST}:0 -v /tmp/.X11-unix:/tmp/.X11-unix --n
 docker run -itd -e DISPLAY=${DOCKER_HOST}:0 -v /tmp/.X11-unix:/tmp/.X11-unix -v /home/oracle/Documentos/AWS/deep_learning:/workspace --name pytools -p 22:22 -p 8888:8888 pytools:latest /bin/zsh
 docker exec -it prueba /bin/zsh 
 
+export WORKSPACE=
+docker run -itd -e DISPLAY=${DOCKER_HOST}:0 -v /tmp/.X11-unix:/tmp/.X11-unix -v $WORKSPACE:/workspace --name pytools -p 22:22 -p 8888:8888 pytools:latest /bin/zsh
+
+
     #Nombre imagen docker hub
 seebaktec/pytools:latest
 
@@ -41,6 +45,14 @@ seebaktec/pytools:latest
 docker-compose -f pytools_compose.yaml down
 docker-compose -f pytools_compose.yaml up -d
 
+docker-compose -f pytools_linux.yaml up -d
+
     #Borrar llaves SSH
 ssh-keygen -f "/home/oracle/.ssh/known_hosts" -R "localhost"\n
 
+poetry env remove python
+
+❯ docker tag pytools:latest seebaktec/pytools:latest
+❯ docker push seebaktec/pytools
+
+docker pull seebaktec/pytools:latest
