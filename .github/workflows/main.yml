@@ -28,8 +28,8 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
-          context: ./Docker/zsh
-          file: ./Dockerfile
+          context: /Docker/zsh
+          file: Dockerfile
           push: true
           tags: seebaktec/zsh:latest
 
