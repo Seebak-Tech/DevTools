@@ -27,7 +27,7 @@ jobs:
         uses: docker/setup-buildx-action@v1
 
       - name: Build zsh
-        id: docker_build
+        id: build_zsh
         uses: docker/build-push-action@v2
         with:
           context: ./Docker/zsh
@@ -36,7 +36,7 @@ jobs:
           tags: seebaktec/zsh:latest
 
       - name: Build tmux
-        id: docker_build2
+        id: build_tmux
         uses: docker/build-push-action@v2
         with:
           context: ./Docker/tmux
@@ -45,7 +45,7 @@ jobs:
           tags: seebaktec/tmux:latest
 
       - name: Build pyenv
-        id: docker_build2
+        id: build_pyenv
         uses: docker/build-push-action@v2
         with:
           context: ./Docker/pyenv
@@ -54,7 +54,7 @@ jobs:
           tags: seebaktec/pyenv:latest
 
       - name: Build nvim
-        id: docker_build2
+        id: build_nvim
         uses: docker/build-push-action@v2
         with:
           context: ./Docker/nvim
@@ -63,7 +63,7 @@ jobs:
           tags: seebaktec/nvim:latest
 
       - name: Build pytools
-        id: docker_build2
+        id: build_pytools
         uses: docker/build-push-action@v2
         with:
           context: ./Docker/pytools
