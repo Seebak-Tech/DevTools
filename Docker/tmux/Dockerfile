@@ -1,6 +1,6 @@
 # Image name tmux:3.1
 
-FROM zsh:latest
+FROM seebaktec/zsh:latest
 
 USER root
 
