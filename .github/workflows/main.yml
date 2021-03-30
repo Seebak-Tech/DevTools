@@ -1,8 +1,7 @@
-# This is a basic workflow to help you get started with Actiname: CI to Docker Hub
+# CI to Docker Hub
 
 on:
   push:
-    branches: [ main ]
     tags:
         - "v*.*"
     
