@@ -1,6 +1,4 @@
-#Image name: pytools:latest
-
-FROM nvim:latest
+FROM seebaktec/nvim:latest
 
 USER root
 

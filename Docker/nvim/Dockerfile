@@ -1,6 +1,4 @@
-# Image name nvim:0.5.0
-
-FROM pyenv:latest
+FROM seebaktec/pyenv:latest
 
 USER root
 

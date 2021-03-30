@@ -1,6 +1,4 @@
-#Image name pyenv:1.2.22 
-
-FROM tmux:latest
+FROM seebaktec/tmux:latest
 
 USER root
 

@@ -1,5 +1,3 @@
-#Image name zsh:5.8
-
 FROM ubuntu
 
 ENV TZ=America/Mexico_City
