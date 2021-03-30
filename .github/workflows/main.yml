@@ -32,6 +32,13 @@ jobs:
           file: ./Docker/zsh/Dockerfile
           push: true
           tags: seebaktec/zsh:latest
-
+      - name: Second build 
+        id: docker_build2
+        uses: docker/build-push-action@v2
+        with:
+          context: ./Docker/tmux
+          file: ./Docker/tmux/Dockerfile
+          push: true
+          tags: seebaktec/tmux:latest
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
