@@ -29,7 +29,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: ./Docker/zsh
-          file: Dockerfile
+          file: ./Dockerfile
           push: true
           tags: seebaktec/zsh:latest
 
