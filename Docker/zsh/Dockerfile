@@ -28,8 +28,7 @@ RUN apt-get update \
     && rm -rf /var/lib/apt/lists/* 
   
 # Set the locale
-RUN sed -i '/es_MX.UTF-8/s/^# //g' /etc/locale.gen \ 
-    && sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen \
+RUN sed -i '/en_US.UTF-8/s/^# //g' /etc/locale.gen \
     && locale-gen 
 
 ENV LANG=en_US.UTF-8 \
