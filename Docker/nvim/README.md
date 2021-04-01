@@ -41,10 +41,6 @@ You can test this image with the next command:
 
       docker run -it --rm --name nvim seebaktec/nvim:latest /bin/zsh
 
-docker run -itd -e DISPLAY=${DOCKER_HOST}:0 -v /tmp/.X11-unix:/tmp/.X11-unix --name pytools -p 22:22 -p 8888:8888 pytools:latest /bin/zsh
-docker run -itd -e DISPLAY=${DOCKER_HOST}:0 -v /tmp/.X11-unix:/tmp/.X11-unix -v /home/oracle/Documentos/AWS/deep_learning:/workspace --name pytools -p 22:22 -p 8888:8888 pytools:latest /bin/zsh
-
-
 ## License
 
 As with all Docker images, these likely also contain other software which may be under other licenses (such as Bash, Ubuntu, zsh, tmux, pyenv etc from the base distribution, along with any direct or indirect dependencies of the primary software being contained).
