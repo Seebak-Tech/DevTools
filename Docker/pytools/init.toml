@@ -49,6 +49,9 @@ name = 'tpope/vim-projectionist'
 ## -- SpaceVim layer list start
 
 [[layers]]
+  name = "git"
+
+[[layers]]
   name = "github"
 
 [[layers]]
@@ -56,5 +59,8 @@ name = 'tpope/vim-projectionist'
 
 [[layers]]
   name = "lang#python"
+
+[[layers]]
+  name = "test" 
 
 ## -- SpaceVim layer list end
