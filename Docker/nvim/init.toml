@@ -43,15 +43,6 @@ name = 'kana/vim-textobj-user'
 [[custom_plugins]]
 name = 'kana/vim-textobj-entire'
 
-[[custom_plugins]]
-name = 'tpope/vim-projectionist' 
-
 ## -- SpaceVim layer list start
-
-[[layers]]
-  name = "github"
-
-[[layers]]
-  name = "default"
 
 ## -- SpaceVim layer list end
