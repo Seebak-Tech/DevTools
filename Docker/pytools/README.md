@@ -37,22 +37,45 @@ And enabled ssh services whit the next ports EXPOSE:
     - port 22
     - port 8888
 
+Supports run X11-apps like xclock, xeyes etc. 
+
 ### Credentials:
 
       User: admin
       Default password: admin1
 
-You can test this image with the next command:
+### Files for docker-compose:
 
-        docker run -itd --name pytools -p 22:22 -p 8888:8888 pytools:latest /bin/zsh
+For execute any command with docker-compose you need to specify an alternate compose file for your OS:
+
+- For Linux use the file: [pytools_linux.yml](https://github.com/Seebak-Tech/DevTools/blob/0ab46d6e7c3b87c8722b83df557514c40d3e9238/Docker/pytools/pytools_linux.yml)
+      
+    
+- For MacOs use the file: [pytools_mac.yml](https://github.com/Seebak-Tech/DevTools/blob/0ab46d6e7c3b87c8722b83df557514c40d3e9238/Docker/pytools/pytools_mac.yml)
+
+- Only for work with x11-apps in MacOS add: 
+ 
+      echo 'export HOST_DOCKER="host.docker.internal"' >> ~/.zshrc 
+
+### Test
+
+For run your workspace you have to define environment variable WORKSPACE to point to the path where your repository is cloned and follow the next steps:
+
+### Run with Docker-compose
+
+You can build and run the container using:
+
+    docker-compose -f $WORKSPACE/kaanbal/docker/development/pytools_***.yaml up -d
+
+### Execute container pytools:
+  
+We use ssh to connect to a tmux session (named "default") inside the container: 
+   
+    ssh admin@localhost -p 22 -t tmux a -t default 
 
 For linux you need to add the next to the previous command:
 
         -v /tmp/.X11-unix:/tmp/.X11-unix 
-
-We use ssh to connect to a tmux session (named "default") inside the container: 
-   
-        ssh admin@localhost -p 22 -t tmux a -t default 
 
 ## License
 
