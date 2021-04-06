@@ -38,6 +38,9 @@ And enabled ssh services whit the next ports EXPOSE:
     - port 8888
 
 Supports run X11-apps like xclock, xeyes etc. 
+<p align="center">
+  <img width="150" height="150" src="https://user-images.githubusercontent.com/33498584/113649227-ab943180-9653-11eb-960b-d0b2708735ea.jpeg">
+</p>
 
 ### Credentials:
 
