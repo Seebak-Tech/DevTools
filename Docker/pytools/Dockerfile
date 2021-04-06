@@ -40,8 +40,11 @@ RUN touch $HOME/.SpaceVim.d/init.toml \
     && ln -s `pyenv which autoflake` $HOME/bin/autoflake \
     && ln -s `pyenv which coverage` $HOME/bin/coverage 
 
-# Installing poetry and set password to user admin 
+# Installing poetry, install poetry for zsh and set password to user admin 
 RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python - \
+    && curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python - \
+    && mkdir $ZSH_CUSTOM/plugins/poetry \
+    && poetry completions zsh > $ZSH_CUSTOM/plugins/poetry/_poetry \
     && echo 'admin:admin1' | sudo chpasswd
 
 COPY docker-entrypoint.sh /tmp/docker-entrypoint.sh
