@@ -7,7 +7,7 @@ services:
       container_name: pytools
       volumes: 
         - $WORKSPACE:/workspace
-	      - ~/.gitconfig:~/.gitconfig
+        - $HOME/.gitconfig:/home/admin/.gitconfig
       environment:
         - DISPLAY=${HOST_DOCKER}:0
       ports: 
