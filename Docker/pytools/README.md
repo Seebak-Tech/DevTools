@@ -32,20 +32,15 @@ With the following python versions installed:
   - 2.7.19
   - 3.9.2
 
-And enabled ssh services whit the next ports EXPOSE:
+Enabled ssh services with the next ports EXPOSE:
 
     - port 22
     - port 8888
 
-Supports run X11-apps like xclock, xeyes etc. 
+And supports run X11-apps like xclock, xeyes etc. 
 <p align="center">
   <img width="150" height="150" src="https://user-images.githubusercontent.com/33498584/113649227-ab943180-9653-11eb-960b-d0b2708735ea.jpeg">
 </p>
-
-### Credentials:
-
-      User: admin
-      Default password: admin1
 
 ### Files for docker-compose:
 
@@ -62,13 +57,13 @@ For execute any command with docker-compose you need to specify an alternate com
 
 ### Test
 
-For run your workspace you have to define environment variable WORKSPACE to point to the path where your repository is cloned and follow the next steps:
+For run your workspace you have to define environment variable WORKSPACE to point to the path where your proyect repository is located and follow the next steps:
 
 ### Run with Docker-compose
 
 You can build and run the container using:
 
-    docker-compose -f $WORKSPACE/kaanbal/docker/development/pytools_***.yaml up -d
+    docker-compose -f $WORKSPACE/.../pytools_***.yaml up -d
 
 ### Execute container pytools:
   
@@ -76,9 +71,10 @@ We use ssh to connect to a tmux session (named "default") inside the container:
    
     ssh admin@localhost -p 22 -t tmux a -t default 
 
-For linux you need to add the next to the previous command:
+### Credentials:
 
-        -v /tmp/.X11-unix:/tmp/.X11-unix 
+      User: admin
+      Default password: admin1
 
 ## License
 
