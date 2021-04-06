@@ -8,7 +8,7 @@ services:
       volumes: 
         - $WORKSPACE:/workspace
         - /tmp/.X11-unix:/tmp/.X11-unix
-	      - ~/.gitconfig:~/.gitconfig
+        - $HOME/.gitconfig:/home/admin/.gitconfig
       environment:
         - DISPLAY=:0
       ports: 
