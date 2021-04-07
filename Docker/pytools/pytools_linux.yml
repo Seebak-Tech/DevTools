@@ -10,7 +10,7 @@ services:
         - /tmp/.X11-unix:/tmp/.X11-unix
         - $HOME/.gitconfig:/home/admin/.gitconfig
       environment:
-        - DISPLAY=:0
+        - DISPLAY=$DISPLAY
       ports: 
         - "22:22"
         - "8888:8888"

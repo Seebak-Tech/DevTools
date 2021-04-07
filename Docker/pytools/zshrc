@@ -25,6 +25,9 @@ export LC_ALL=en_US.UTF-8
 #PATH
 export PATH=$HOME/.local/bin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PYENV_ROOT/bin:$HOME/.poetry/bin:$HOME/bin
 
+#DISPLAY
+export DISPLAY=:0
+
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
