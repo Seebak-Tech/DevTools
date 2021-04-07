@@ -16,7 +16,7 @@ Supported architectures: MacOS, Ubuntu 20.04
 
 ## What is pytools?
 
- Pytools is a work environment with a serie of tools installed to develop projects in python.
+ Pytools is a working environment with a series of tools installed to develop python projects.
 
 ## What's in this image?
 
@@ -28,7 +28,7 @@ Supported architectures: MacOS, Ubuntu 20.04
   - poetry
   - neovim with spacevim
 
-With the following python versions installed:
+With the following python versions installed by default:
   - 2.7.19
   - 3.9.2
 
