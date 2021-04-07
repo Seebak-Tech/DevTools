@@ -46,10 +46,10 @@ And supports run X11-apps like xclock, xeyes etc.
 
 To interact with the pytools image it is recommended to use the docker compose file and configure some aliases:
 
-- For Linux use the file: [pytools_linux.yml](https://github.com/Seebak-Tech/DevTools/blob/0ab46d6e7c3b87c8722b83df557514c40d3e9238/Docker/pytools/pytools_linux.yml)
+- For Linux use the file: [pytools_linux.yml](https://github.com/Seebak-Tech/DevTools/blob/main/Docker/pytools/pytools_linux.yml)
       
     
-- For MacOs use the file: [pytools_mac.yml](https://github.com/Seebak-Tech/DevTools/blob/0ab46d6e7c3b87c8722b83df557514c40d3e9238/Docker/pytools/pytools_mac.yml)
+- For MacOs use the file: [pytools_mac.yml](https://github.com/Seebak-Tech/DevTools/blob/main/Docker/pytools/pytools_mac.yml)
 
 Only for work with x11-apps in MacOS add: 
  
