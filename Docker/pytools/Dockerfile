@@ -15,7 +15,8 @@ ENV HOME=/home/admin \
     PYENV_ROOT=$HOME/.pyenv \
     PATH=$HOME/.local/bin:/home/admin/.pyenv/shims:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/admin/.pyenv/bin:$PYENV_ROOT/plugins/pyenv-virtualenv/shims:$HOME/.pyenv/shims:$HOME/bin \
     PYTHON3_HOST_PROG=/home/admin/.pyenv/versions/neovim3/bin/python \
-    PYTHON_HOST_PROG=/home/admin/.pyenv/versions/neovim2/bin/python 
+    PYTHON_HOST_PROG=/home/admin/.pyenv/versions/neovim2/bin/python \
+    ZSH_CUSTOM=/home/admin/.oh-my-zsh/custom/
 
 ARG PYTHON2_VERSION=2.7.18
 
@@ -40,8 +41,11 @@ RUN touch $HOME/.SpaceVim.d/init.toml \
     && ln -s `pyenv which autoflake` $HOME/bin/autoflake \
     && ln -s `pyenv which coverage` $HOME/bin/coverage 
 
-# Installing poetry and set password to user admin 
+# Installing poetry, install poetry for zsh and set password to user admin 
 RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python - \
+    && curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/install-poetry.py | python - \
+    && mkdir $ZSH_CUSTOM/plugins/poetry \
+    && poetry completions zsh > $ZSH_CUSTOM/plugins/poetry/_poetry \
     && echo 'admin:admin1' | sudo chpasswd
 
 COPY docker-entrypoint.sh /tmp/docker-entrypoint.sh

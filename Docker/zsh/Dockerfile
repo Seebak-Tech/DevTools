@@ -47,9 +47,10 @@ WORKDIR /home/admin
 # Switching from user's bash to zsh 
 RUN sudo usermod -s /usr/bin/zsh $(whoami)
 
-# Installing Oh-my-zsh
+# Installing Oh-my-zsh and pluggins
 RUN sh -c "$(wget -O- https://raw.github.com/robbyrussell/oh-my-zsh/master/tools/install.sh)" \
-    && git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+    && git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k \
+    && git clone https://github.com/zsh-users/zsh-autosuggestions ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/plugins/zsh-autosuggestions
 
 COPY --chown=admin zshrc ./.zshrc
 

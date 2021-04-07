@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+    pytools:
+      image: seebaktec/pytools
+      command: /bin/zsh
+      container_name: pytools
+      volumes: 
+        - $WORKSPACE:/workspace
+        - /tmp/.X11-unix:/tmp/.X11-unix
+        - $HOME/.gitconfig:/home/admin/.gitconfig
+      environment:
+        - DISPLAY=:0
+      ports: 
+        - "22:22"
+        - "8888:8888"
+      stdin_open: true
+      tty: true 
