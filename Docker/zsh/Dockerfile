@@ -9,21 +9,22 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime \
 # Installation Packages
 RUN apt-get update \
     && apt-get install -y -q --allow-unauthenticated \
-    git \
-    curl \
     build-essential \
+    curl \
+    fonts-powerline \
+    git \
+    iputils-ping \
+    locales \
+    make \
+    net-tools \
     sudo \
+    tree \
+    tzdata \
     vim  \
     wget \ 
-    make \
-    locales \
-    tzdata \
-    fonts-powerline \
+    x11-apps \
     zsh \
     zsh-syntax-highlighting \
-    iputils-ping \
-    x11-apps \
-    net-tools \
     && apt-get clean all \
     && rm -rf /var/lib/apt/lists/* 
   
