@@ -61,40 +61,7 @@ For run your workspace you have to define environment variable WORKSPACE to poin
 
 ### Run with Docker-compose
 
-You can build and run the container using:
-
-    docker-compose -f $WORKSPACE/pytools_***.yml up -d
-
-### Some others useful commands for docker-compose:
-
-You can manipulate your container using the docker-compose command as follows:
-
-    Usage:
-      docker-compose [-f <arg>...] [COMMAND]  [options]
-
-    Options:
-      -f, --file FILE             Specify an alternate compose file
-                                  (default: docker-compose.yml)
-    Commands:
-      down               Stop and remove containers, networks, images, and volumes
-      pause              Pause services
-      start              Start services
-      stop               Stop services
-      unpause            Unpause services
-      up                 Create and start containers
-
-Example: 
-
- In the next example we use the command "up" + "-d" to indicate we want to dettach the container in our current session:
-
-    docker-compose -f $WORKSPACE/pytools_***.yml up -d
-
-You can also see this information and more by running docker-compose --help from the command line.
-
-
-### Alias for container pytools:
-
- If you prefer, you could add the following alias to the .zshrc file:
+You can build, run, up, down, start, stop, pause and unpause the container adding the following alias to the .zshrc file:
 
     alias pytools-ssh="ssh admin@localhost -p 22 -t tmux a"
     
@@ -111,11 +78,30 @@ You can also see this information and more by running docker-compose --help from
     alias pytools-unpause="docker-compose -f $WORKSPACE/pytools_***.yml unpause"
  
 
-### Execute container pytools:
-  
-We use ssh to connect to a tmux session (named "default") inside the container: 
-   
-    ssh admin@localhost -p 22 -t tmux a -t default 
+### Or you can use your own docker-compose file:
+
+    Usage:
+      docker-compose [-f <arg>...] [COMMAND]  [options]
+
+    Options:
+      -f, --file FILE             Specify an alternate compose file
+                                  (default: docker-compose.yml)
+    Commands:
+      down               Stop and remove containers, networks, images, and volumes
+      pause              Pause services
+      start              Start services
+      stop               Stop services
+      unpause            Unpause services
+      up                 Create and start containers
+
+You can also see this information and more by running docker-compose --help from the command line.
+
+### Example 
+
+ In the next example we connect to the container using the alias previously configured:
+        
+    pytools-ssh
+    admin@localhost's password:
 
 ### Credentials:
 
