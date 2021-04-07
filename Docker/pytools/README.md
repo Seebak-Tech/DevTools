@@ -32,7 +32,7 @@ With the following python versions installed:
   - 2.7.19
   - 3.9.2
 
-Enabled ssh services with the next ports EXPOSE:
+Enabled ssh services with the following ports:
 
     - port 22
     - port 8888
@@ -44,14 +44,14 @@ And supports run X11-apps like xclock, xeyes etc.
 
 ### Files for docker-compose:
 
-For execute any command with docker-compose you need to specify an alternate compose file for your OS:
+To interact with the pytools image it is recommended to use the docker compose file and configure some aliases:
 
 - For Linux use the file: [pytools_linux.yml](https://github.com/Seebak-Tech/DevTools/blob/0ab46d6e7c3b87c8722b83df557514c40d3e9238/Docker/pytools/pytools_linux.yml)
       
     
 - For MacOs use the file: [pytools_mac.yml](https://github.com/Seebak-Tech/DevTools/blob/0ab46d6e7c3b87c8722b83df557514c40d3e9238/Docker/pytools/pytools_mac.yml)
 
-- Only for work with x11-apps in MacOS add: 
+Only for work with x11-apps in MacOS add: 
  
       echo 'export HOST_DOCKER="host.docker.internal"' >> ~/.zshrc 
 
@@ -63,7 +63,53 @@ For run your workspace you have to define environment variable WORKSPACE to poin
 
 You can build and run the container using:
 
-    docker-compose -f $WORKSPACE/.../pytools_***.yaml up -d
+    docker-compose -f $WORKSPACE/pytools_***.yml up -d
+
+### Some others useful commands for docker-compose:
+
+You can manipulate your container using the docker-compose command as follows:
+
+    Usage:
+      docker-compose [-f <arg>...] [COMMAND]  [options]
+
+    Options:
+      -f, --file FILE             Specify an alternate compose file
+                                  (default: docker-compose.yml)
+    Commands:
+      down               Stop and remove containers, networks, images, and volumes
+      pause              Pause services
+      start              Start services
+      stop               Stop services
+      unpause            Unpause services
+      up                 Create and start containers
+
+Example: 
+
+ In the next example we use the command "up" + "-d" to indicate we want to dettach the container in our current session:
+
+    docker-compose -f $WORKSPACE/pytools_***.yml up -d
+
+You can also see this information and more by running docker-compose --help from the command line.
+
+
+### Alias for container pytools:
+
+ If you prefer, you could add the following alias to the .zshrc file:
+
+    alias pytools-ssh="ssh admin@localhost -p 22 -t tmux a"
+    
+    alias pytools-up="docker-compose -f $WORKSPACE/pytools_***.yml up -d"
+
+    alias pytools-down="docker-compose -f $WORKSPACE/pytools_***.yml down"
+    
+    alias pytools-start="docker-compose -f $WORKSPACE/pytools_***.yml start"
+    
+    alias pytools-stop="docker-compose -f $WORKSPACE/pytools_***.yml stop"
+
+    alias pytools-pause="docker-compose -f $WORKSPACE/pytools_***.yml pause"
+  
+    alias pytools-unpause="docker-compose -f $WORKSPACE/pytools_***.yml unpause"
+ 
 
 ### Execute container pytools:
   
