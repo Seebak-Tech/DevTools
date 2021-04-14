@@ -13,7 +13,9 @@ USER admin
 
 ENV HOME=/home/admin \
     PYENV_ROOT=$HOME/.pyenv \
-    PATH=$HOME/.local/bin:/home/admin/.pyenv/shims:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/admin/.pyenv/bin:$PYENV_ROOT/plugins/pyenv-virtualenv/shims:$HOME/.pyenv/shims:$HOME/bin \
+    PATH=$HOME/.local/bin:/home/admin/.pyenv/shims:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin \
+    PATH=$PATH:/home/admin/.pyenv/bin:$PYENV_ROOT/plugins/pyenv-virtualenv/shims \
+    PATH=$PATH:$HOME/.pyenv/shims:$HOME/bin:/$HOME/.poetry/bin \
     PYTHON3_HOST_PROG=/home/admin/.pyenv/versions/neovim3/bin/python \
     PYTHON_HOST_PROG=/home/admin/.pyenv/versions/neovim2/bin/python \
     ZSH_CUSTOM=/home/admin/.oh-my-zsh/custom/
