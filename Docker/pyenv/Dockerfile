@@ -14,6 +14,8 @@ RUN apt-get update \
     llvm \
     xz-utils \
     zlib1g-dev \
+    liblzma-dev \
+    python-openssl \
     && apt-get clean all \
     && rm -rf /var/lib/apt/lists/* 
 
