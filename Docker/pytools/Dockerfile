@@ -6,6 +6,7 @@ USER root
 RUN apt-get update \
   && apt-get install -y -q --allow-unauthenticated \
   tk-dev \
+  awscli \
   && apt-get clean all \
   && rm -rf /var/lib/apt/lists/* 
 
