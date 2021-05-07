@@ -8,6 +8,7 @@ services:
       volumes: 
         - $WORKSPACE:/workspace
         - $HOME/.gitconfig:/home/admin/.gitconfig
+        - $HOME/.aws:/home/admin/.aws
       environment:
         - DISPLAY=${HOST_DOCKER}:0
       ports: 

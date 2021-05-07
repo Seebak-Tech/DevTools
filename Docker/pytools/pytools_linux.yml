@@ -9,6 +9,7 @@ services:
         - $WORKSPACE:/workspace
         - /tmp/.X11-unix:/tmp/.X11-unix
         - $HOME/.gitconfig:/home/admin/.gitconfig
+        - $HOME/.aws:/home/admin/.aws
       environment:
         - DISPLAY=$DISPLAY
       ports: 
