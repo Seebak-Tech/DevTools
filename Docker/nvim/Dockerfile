@@ -41,9 +41,10 @@ USER admin
 
 ENV HOME=/home/admin \
     PYENV_ROOT=$HOME/.pyenv \
-    PATH=$HOME/.local/bin:/home/admin/.pyenv/shims:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/admin/.pyenv/bin:$PYENV_ROOT/plugins/pyenv-virtualenv/shims:$HOME/.pyenv/shims \
+    PATH=/home/admin/.pyenv/shims:/home/admin/.pyenv/bin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:.  \
     PYTHON3_HOST_PROG=/home/admin/.pyenv/versions/neovim3/bin/python \
-    PYTHON_HOST_PROG=/home/admin/.pyenv/versions/neovim2/bin/python
+    PYTHON_HOST_PROG=/home/admin/.pyenv/versions/neovim2/bin/python \
+    PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 ARG PYTHON2_VERSION=2.7.18
 
