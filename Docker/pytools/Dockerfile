@@ -14,7 +14,7 @@ RUN apt-get update \
 USER admin 
 
 ENV HOME=/home/admin \
-    PATH=$HOME/.local/bin:/home/admin/.pyenv/shims:/home/admin/.pyenv/bin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/admin/.poetry/bin:. \
+    PATH=/home/admin/.pyenv/shims:/home/admin/.pyenv/bin:$HOME/.local/bin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/admin/.poetry/bin:. \
     PYTHON3_HOST_PROG=/home/admin/.pyenv/versions/neovim3/bin/python \
     PYTHON_HOST_PROG=/home/admin/.pyenv/versions/neovim2/bin/python \
     ZSH_CUSTOM=/home/admin/.oh-my-zsh/custom/
