@@ -10,7 +10,6 @@ fi
 export TERM=xterm-256color
 
 #PYENV
-export PYENV_ROOT=$HOME/.pyenv 
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 #LOCALE
@@ -18,12 +17,9 @@ export LANG=en_US.UTF-8
 export LANGUAGE=en_US:en 
 export LC_ALL=en_US.UTF-8 
 
-#PATH
-export PATH=/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$PYENV_ROOT/bin
-#/home/admin/.pyenv/shims:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/home/admin/.pyenv/bin
-
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+if command -v pyenv 1>/dev/null 2>&1; then
+ eval "$(pyenv init -)"
+fi
 
 #Clean PATH
 typeset -U PATH
