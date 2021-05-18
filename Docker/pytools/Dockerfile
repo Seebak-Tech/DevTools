@@ -6,7 +6,6 @@ USER root
 RUN apt-get update \
   && apt-get install -y -q --allow-unauthenticated \
   tk-dev \
-  awscli \
   ffmpeg \
   && apt-get clean all \
   && rm -rf /var/lib/apt/lists/* 
@@ -49,6 +48,10 @@ RUN curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-
     && mkdir $ZSH_CUSTOM/plugins/poetry \
     && poetry completions zsh > $ZSH_CUSTOM/plugins/poetry/_poetry \
     && poetry config virtualenvs.in-project true \
+    && curl https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip -o /tmp/awscli.zip \
+    && unzip -q /tmp/awscli.zip -d /tmp \
+    && sudo /tmp/aws/install \
+    && rm -rf /tmp/aws* \
     && echo 'admin:admin1' | sudo chpasswd
 
 COPY docker-entrypoint.sh /tmp/docker-entrypoint.sh

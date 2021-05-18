@@ -26,6 +26,7 @@ Supported architectures: MacOS, Ubuntu 20.04
   - TMUX is custumized by: [Oh my tmux ](https://github.com/gpakosz/.tmux)
   - pyenv
   - poetry
+  - awscli
   - neovim with spacevim
 
 With the following python versions installed by default:
