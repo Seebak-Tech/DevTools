@@ -50,9 +50,7 @@ name = 'tpope/vim-projectionist'
 
 [[layers]]
   name = "git"
-
-[[layers]]
-  name = "github"
+  git_plugin = 'fugitive'
 
 [[layers]]
   name = "default"

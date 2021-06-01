@@ -13,9 +13,14 @@ function! myspacevim#before() abort
     " Silencia la busqueda para evitar que se quede pintada la cadena buscada
     noremap <silent> <C-l> :<C-u>nohlsearch<CR><C-l>
 
-    "Configuraion de split de ventanas
+    " Configuracion de split de ventanas
     set splitbelow
     set splitright
+
+    " Configuracion para la sustitucion de caracteres mostrando en una ventana
+    " previa los cambios que se realizaran ejemplo: :%s/word/change/gc
+
+    set inccommand=split
 
 endf
 
