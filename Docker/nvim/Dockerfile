@@ -15,12 +15,13 @@ RUN apt-get update \
     libtool-bin \
     lua5.3 \
     ninja-build \
+    npm \
+    openssh-server \
     pkg-config \
     unzip \
     xclip \
     xfonts-utils \
     xauth \
-    openssh-server \
     && apt-get clean all \
     && rm -rf /var/lib/apt/lists/* 
 
@@ -43,10 +44,7 @@ ENV HOME=/home/admin \
     PYENV_ROOT=$HOME/.pyenv \
     PATH=/home/admin/.pyenv/shims:/home/admin/.pyenv/bin:$HOME/.local/bin:$HOME/bin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:.  \
     PYTHON3_HOST_PROG=/home/admin/.pyenv/versions/neovim3/bin/python \
-    PYTHON_HOST_PROG=/home/admin/.pyenv/versions/neovim2/bin/python \
     PYENV_VIRTUALENV_DISABLE_PROMPT=1
-
-ARG PYTHON2_VERSION=2.7.18
 
 ARG PYTHON3_VERSION=3.9.2
 
@@ -55,22 +53,18 @@ WORKDIR $HOME
 COPY --chown=admin zshrc ./.zshrc
 
 # Installing Spacevim
-RUN pyenv install $PYTHON2_VERSION \
-    && pyenv install $PYTHON3_VERSION \
-    && pyenv global $PYTHON3_VERSION $PYTHON2_VERSION \
+RUN pyenv install $PYTHON3_VERSION \
+    && pyenv global $PYTHON3_VERSION \
     && pyenv rehash \
-    && pyenv virtualenv $PYTHON2_VERSION neovim2 \
     && pyenv virtualenv $PYTHON3_VERSION neovim3 \
     && eval "$(pyenv init -)" \
     && eval "$(pyenv virtualenv-init -)" \
-    && pyenv activate neovim2 \
-    && pip install --upgrade pip \
-    && pip install neovim \
     && pyenv activate neovim3 \
     && pip install --upgrade pip \
     && pip install neovim \
     && mkdir -p $HOME/.config $HOME/.SpaceVim.d \
-    && curl -sLf https://spacevim.org/install.sh | bash
+    && curl -sLf https://spacevim.org/install.sh | bash \
+    && sudo npm install -g neovim
 
 COPY --chown=admin myspacevim.vim $HOME/.SpaceVim.d/autoload/myspacevim.vim 
 
